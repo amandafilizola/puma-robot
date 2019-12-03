@@ -32,10 +32,9 @@ for k = 1:4
 end
 
 path = [path;p_inicial];
-path
 size = length(path)- 1;
 
-for o = 1: size
+for o = 1: size/2
     orientations = [orientations;ball_o];
     orientations = [orientations;fim_o];
 end
@@ -53,7 +52,7 @@ for i = 1:size
     Tfim = transl(path(row_fim,:))* trotx(orientations(row_fim,1))* troty(orientations(row_fim,2))* trotz(orientations(row_fim,3));
     qini = p560.ikine6s(Tini);    
     qfim = p560.ikine6s(Tfim);
-    Qtraj = mtraj(@tpoly, qini, qfim, t);
+    Qtraj = jtraj(qini, qfim, t);
     p560.plot(Qtraj);       
     if ( i ~= 1 ) && ( i ~= size )  
         plot_sphere([Tfim(1,4), Tfim(2,4), Tfim(3,4)], 0.05, 'y');    
