@@ -2,6 +2,7 @@ clear
 clc 
 clf
 mdl_puma560
+startup_rvc
 %Definindo a distância da base da ferramenta à sua extremidade
 p560.tool = transl(0, 0, 0.18);
 %Definindo posições iniciais do robô e da bola
